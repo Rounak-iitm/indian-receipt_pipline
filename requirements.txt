@@ -1,0 +1,30 @@
+# Core ML
+transformers>=4.44.0
+peft>=0.12.0
+accelerate>=0.33.0
+bitsandbytes>=0.43.0
+datasets>=2.20.0
+trl>=0.9.6
+sentencepiece
+protobuf
+
+# Quantization / GGUF export
+# (llama.cpp's convert scripts are used separately, see scripts/quantize_export.py)
+gguf
+
+# OCR
+pytesseract
+easyocr
+pillow
+
+# Faker-style synthetic data
+Faker
+
+# App
+streamlit
+
+# Eval / utils
+jsonschema
+pandas
+tqdm
+matplotlib

@@ -1,0 +1,36 @@
+# QLoRA fine-tuning config for Qwen2.5-1.5B-Instruct on a 4GB GPU (RTX 3050).
+base_model: Qwen/Qwen2.5-1.5B-Instruct
+train_file: data/synthetic/train.jsonl
+val_file: data/synthetic/val.jsonl
+output_dir: models/qlora-finetuned
+
+# 4-bit quantized base model (QLoRA) - this is what makes 1.5B trainable in 4GB
+load_in_4bit: true
+bnb_4bit_quant_type: nf4
+bnb_4bit_compute_dtype: bfloat16
+bnb_4bit_use_double_quant: true
+
+# LoRA adapter
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+# Training
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16   # effective batch size 16
+gradient_checkpointing: true
+learning_rate: 2e-4
+num_train_epochs: 3
+max_seq_length: 1024
+warmup_ratio: 0.03
+lr_scheduler_type: cosine
+logging_steps: 10
+eval_steps: 100
+save_steps: 200
+optim: paged_adamw_8bit   # keeps optimizer states off the GPU when possible
+
+# If you still OOM on 4GB, first try:
+#   - max_seq_length: 768
+#   - gradient_accumulation_steps: 32 (with batch size 1)
+#   - lora_r: 8
