@@ -77,17 +77,3 @@ python scripts/eval_compare.py
 streamlit run app/streamlit_app.py
 ```
 
-## Research question
-
-> How much can a 1.5B-parameter language model be specialized for Indian
-> financial-document extraction using parameter-efficient fine-tuning (QLoRA)
-> and post-training quantization, while running entirely on a 4GB consumer GPU?
-
-## Status
-- [x] Repo scaffolded
-- [ ] Environment verified on RTX 3050
-- [ ] Synthetic dataset generated
-- [ ] Baseline eval run
-- [ ] QLoRA fine-tuning complete
-- [ ] Quantized + benchmarked
-- [ ] Streamlit demo working
