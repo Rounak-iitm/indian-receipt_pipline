@@ -1,13 +1,4 @@
-"""
-QLoRA fine-tuning of a small Qwen model on the synthetic Indian receipt
-dataset. Designed to fit in 4GB VRAM (e.g. RTX 3050 Laptop GPU).
 
-Usage:
-    python scripts/train_qlora.py --config configs/qlora_1_5b.yaml
-
-Requires: transformers, peft, accelerate, bitsandbytes, trl, datasets
-(installed via scripts/setup_env.sh)
-"""
 import argparse
 import json
 
