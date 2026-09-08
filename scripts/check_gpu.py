@@ -1,7 +1,4 @@
-"""
-Verifies that PyTorch can see and use the GPU.
-Run: python scripts/check_gpu.py
-"""
+
 import torch
 
 print(f"torch version: {torch.__version__}")
