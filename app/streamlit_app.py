@@ -1,10 +1,4 @@
-"""
-Streamlit demo: upload an Indian receipt image (or paste text), run OCR,
-extract structured JSON with the fine-tuned model.
 
-Usage:
-    streamlit run app/streamlit_app.py
-"""
 import json
 
 import pytesseract
