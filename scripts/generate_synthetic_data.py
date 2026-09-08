@@ -1,28 +1,4 @@
-"""
-Generates a synthetic dataset of Indian receipts paired with ground-truth
-structured JSON, for fine-tuning / evaluating a receipt-understanding model.
 
-Covers:
-  - Kirana stores, restaurants, medical shops, supermarkets, fuel, clothing
-  - English, Hindi, and Hinglish item names
-  - GST / CGST+SGST, UPI/PhonePe/GPay/cash payment methods
-  - Injected OCR noise (digit/letter confusion, missing currency symbols)
-
-Usage:
-    python scripts/generate_synthetic_data.py --n 10000 --out data/synthetic
-
-Outputs:
-    data/synthetic/train.jsonl
-    data/synthetic/val.jsonl
-    data/synthetic/test.jsonl
-
-Each line is a JSON object:
-    {
-        "receipt_text": "<raw/noisy receipt text>",
-        "label": { ...ground truth structured fields... },
-        "instruction": "<the instruction-tuning prompt used for training>"
-    }
-"""
 import argparse
 import json
 import random
