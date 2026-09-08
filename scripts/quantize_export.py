@@ -1,15 +1,4 @@
-"""
-Merges a LoRA adapter into the base model, then converts to GGUF and
-quantizes for fast local CPU/GPU inference (via llama.cpp).
 
-This script assumes you have llama.cpp cloned alongside this repo:
-    git clone https://github.com/ggerganov/llama.cpp
-    cd llama.cpp && pip install -r requirements.txt
-
-Usage:
-    python scripts/quantize_export.py --model models/qlora-finetuned --bits 4 \
-        --llama-cpp-path ../llama.cpp
-"""
 import argparse
 import subprocess
 from pathlib import Path
